@@ -1,18 +1,20 @@
-package ua.alfabank.andry.inkin.currencyrate.domain;
+package ua.open.api.andry.inkin.currencyrate.domain;
 
 import java.util.Objects;
 
-public class MainCurrenciesRate {
+public class MainCurrencyRate {
 //    Код валюти рахунку відповідно ISO 4217
     private String currencyCodeA;
 //    Код валюти рахунку відповідно ISO 4217
     private String currencyCodeB;
 //    Час курсу в секундах в форматі Unix time
     private String date;
+//    Курс продажі
     private String rateSell;
+//    Курс купівлі  
     private String rateBuy;
 
-    private MainCurrenciesRate(Builder builder) {
+    private MainCurrencyRate(Builder builder) {
         this.currencyCodeA = builder.currencyCodeA;
         this.currencyCodeB = builder.currencyCodeB;
         this.date = builder.date;
@@ -20,7 +22,7 @@ public class MainCurrenciesRate {
         this.rateBuy = builder.rateBuy;
     }
     
-    public MainCurrenciesRate() {
+    public MainCurrencyRate() {
     }
     
     public static Builder builder() {
@@ -67,7 +69,7 @@ public class MainCurrenciesRate {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        MainCurrenciesRate other = (MainCurrenciesRate) obj;
+        MainCurrencyRate other = (MainCurrencyRate) obj;
         return Objects.equals(currencyCodeA, other.currencyCodeA) &&
                Objects.equals(currencyCodeB, other.currencyCodeB) &&
                Objects.equals(date, other.date) &&
@@ -125,8 +127,8 @@ public class MainCurrenciesRate {
             return this;
         }
 
-        public MainCurrenciesRate build() {
-            return new MainCurrenciesRate(this);
+        public MainCurrencyRate build() {
+            return new MainCurrencyRate(this);
         }
     }
 }

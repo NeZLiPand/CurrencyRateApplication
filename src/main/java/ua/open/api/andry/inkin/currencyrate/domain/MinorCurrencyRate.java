@@ -1,8 +1,8 @@
-package ua.alfabank.andry.inkin.currencyrate.domain;
+package ua.open.api.andry.inkin.currencyrate.domain;
 
 import java.util.Objects;
 
-public class MinorCurrenciesRate {
+public class MinorCurrencyRate {
 //  Код валюти рахунку відповідно ISO 4217
     private String currencyCodeA;
 //  Код валюти рахунку відповідно ISO 4217
@@ -11,14 +11,14 @@ public class MinorCurrenciesRate {
     private String date;
     private String rateCross;
 
-    private MinorCurrenciesRate(Builder builder) {
+    private MinorCurrencyRate(Builder builder) {
         this.currencyCodeA = builder.currencyCodeA;
         this.currencyCodeB = builder.currencyCodeB;
         this.date = builder.date;
         this.rateCross = builder.rateCross;
     }
 
-    public MinorCurrenciesRate() {
+    public MinorCurrencyRate() {
     }
 
     public static Builder builder() {
@@ -61,7 +61,7 @@ public class MinorCurrenciesRate {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        MinorCurrenciesRate other = (MinorCurrenciesRate) obj;
+        MinorCurrencyRate other = (MinorCurrencyRate) obj;
         return Objects.equals(currencyCodeA, other.currencyCodeA) &&
                Objects.equals(currencyCodeB, other.currencyCodeB) &&
                Objects.equals(date, other.date) &&
@@ -110,8 +110,8 @@ public class MinorCurrenciesRate {
             return this;
         }
 
-        public MinorCurrenciesRate build() {
-            return new MinorCurrenciesRate(this);
+        public MinorCurrencyRate build() {
+            return new MinorCurrencyRate(this);
         }
     }
 }
