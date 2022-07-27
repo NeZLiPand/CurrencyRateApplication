@@ -13,12 +13,13 @@ public final class MyUtilities {
         return new java.text.SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(new java.util.Date(dateInSeconds * 1000));
     }
 
+    // переписати реалізацію методів нижче з використанням "JSONML"
     public static String convertJSONArrayToXMLArray(String jsonData) {
-        return new String(XML.toString(new JSONArray(jsonData)));
+        return XML.toString(new JSONArray(jsonData));
     }
 
-    public static String convertXMLArraytoJSONArray(String xmlData) {
-        return new String(new JSONArray(XML.toJSONObject(xmlData)).toString());
+    public static JSONArray convertXMLArraytoJSONArray(String xmlData) {
+        return new JSONArray(XML.toJSONObject(xmlData));
     }
 
 }
