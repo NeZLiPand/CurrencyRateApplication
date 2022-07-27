@@ -2,13 +2,13 @@ package ua.open.api.andry.inkin.currencyrate;
 
 import java.io.IOException;
 
-import ua.open.api.andry.inkin.currencyrate.handler.RequestHandler;
-import ua.open.api.andry.inkin.currencyrate.parse.Parser;
-import ua.open.api.andry.inkin.currencyrate.parse.ParserImpl;
-import ua.open.api.andry.inkin.currencyrate.provider.TempFileProvider;
-import ua.open.api.andry.inkin.currencyrate.provider.TempFileProviderImpl;
-import ua.open.api.andry.inkin.currencyrate.validator.Validator;
-import ua.open.api.andry.inkin.currencyrate.validator.ValidatorImpl;
+import ua.open.api.andry.inkin.currencyrate.controller.RequestHandler;
+import ua.open.api.andry.inkin.currencyrate.controller.parser.Parser;
+import ua.open.api.andry.inkin.currencyrate.controller.parser.ParserImpl;
+import ua.open.api.andry.inkin.currencyrate.controller.utility.CRUDFile;
+import ua.open.api.andry.inkin.currencyrate.controller.utility.CRUDFileImpl;
+import ua.open.api.andry.inkin.currencyrate.controller.validator.Validator;
+import ua.open.api.andry.inkin.currencyrate.controller.validator.ValidatorImpl;
 
 public class CurrencyRateConsoleApplication {
     
@@ -31,10 +31,10 @@ public class CurrencyRateConsoleApplication {
     public static void main(String[] args) throws IOException {
         Validator validator = new ValidatorImpl();
         Parser parser = new ParserImpl();
-        TempFileProvider tempFileProvider = new TempFileProviderImpl();
+        CRUDFile cRUDFile = new CRUDFileImpl();
         RequestHandler requestHandler = RequestHandler.builder()
                                                       .withParser(parser)
-                                                      .withTempFileProvider(tempFileProvider)
+                                                      .withTempFileProvider(cRUDFile)
                                                       .withValidator(validator)
                                                       .build();
         requestHandler.processingRequest();

@@ -1,13 +1,13 @@
-package ua.open.api.andry.inkin.currencyrate.provider;
+package ua.open.api.andry.inkin.currencyrate.controller.utility;
 
 import java.io.File;
 import java.io.IOException;
 
 import javax.xml.parsers.ParserConfigurationException;
 
-public interface TempFileProvider {
+public interface CRUDFile {
 
-    public void provideTempFile(String nameFile,
+    public void provideFile(String nameFile,
                                 String typeFile,
                                 String textToFile);
 

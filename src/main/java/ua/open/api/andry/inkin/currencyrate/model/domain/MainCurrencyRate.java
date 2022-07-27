@@ -1,30 +1,37 @@
-package ua.open.api.andry.inkin.currencyrate.domain;
+package ua.open.api.andry.inkin.currencyrate.model.domain;
 
 import java.util.Objects;
 
 public class MainCurrencyRate {
 //    Код валюти рахунку відповідно ISO 4217
     private String currencyCodeA;
+    private String letterCodeA;
 //    Код валюти рахунку відповідно ISO 4217
     private String currencyCodeB;
+    private String letterCodeB;
 //    Час курсу в секундах в форматі Unix time
     private String date;
 //    Курс продажі
     private String rateSell;
 //    Курс купівлі  
     private String rateBuy;
+//    Курс обміну  
+    private String rateCross;
 
     private MainCurrencyRate(Builder builder) {
         this.currencyCodeA = builder.currencyCodeA;
+        this.letterCodeA = builder.letterCodeA;
+        this.letterCodeB = builder.letterCodeB;
         this.currencyCodeB = builder.currencyCodeB;
         this.date = builder.date;
         this.rateSell = builder.rateSell;
         this.rateBuy = builder.rateBuy;
+        this.rateCross = builder.rateCross;
     }
-    
+
     public MainCurrencyRate() {
     }
-    
+
     public static Builder builder() {
         return new Builder();
     }
@@ -33,8 +40,20 @@ public class MainCurrencyRate {
         return getClass().getDeclaredFields().length;
     }
 
+    public String getLetterCodeB() {
+        return letterCodeB;
+    }
+
+    public String getLetterCodeA() {
+        return letterCodeA;
+    }
+
     public String getCurrencyCodeA() {
         return currencyCodeA;
+    }
+
+    public String getRateCross() {
+        return rateCross;
     }
 
     public String getCurrencyCodeB() {
@@ -55,7 +74,7 @@ public class MainCurrencyRate {
 
     @Override
     public int hashCode() {
-        return Objects.hash(currencyCodeA, currencyCodeB, date, rateBuy, rateSell);
+        return Objects.hash(currencyCodeA, currencyCodeB, date, letterCodeA, letterCodeB, rateBuy, rateCross, rateSell);
     }
 
     @Override
@@ -73,22 +92,31 @@ public class MainCurrencyRate {
         return Objects.equals(currencyCodeA, other.currencyCodeA) &&
                Objects.equals(currencyCodeB, other.currencyCodeB) &&
                Objects.equals(date, other.date) &&
+               Objects.equals(letterCodeA, other.letterCodeA) &&
+               Objects.equals(letterCodeB, other.letterCodeB) &&
                Objects.equals(rateBuy, other.rateBuy) &&
+               Objects.equals(rateCross, other.rateCross) &&
                Objects.equals(rateSell, other.rateSell);
     }
 
     @Override
     public String toString() {
-        return "MainCurrenciesRate [currencyCodeA="
+        return "MainCurrencyRate [currencyCodeA="
                + currencyCodeA
+               + ", letterCodeA="
+               + letterCodeA
                + ", currencyCodeB="
                + currencyCodeB
+               + ", letterCodeB="
+               + letterCodeB
                + ", date="
                + date
                + ", rateSell="
                + rateSell
                + ", rateBuy="
                + rateBuy
+               + ", rateCross="
+               + rateCross
                + "]";
     }
 
@@ -98,8 +126,21 @@ public class MainCurrencyRate {
         private String date;
         private String rateSell;
         private String rateBuy;
+        private String rateCross;
+        private String letterCodeA;
+        private String letterCodeB;
 
         private Builder() {
+        }
+
+        public Builder withLetterCodeB(String letterCodeB) {
+            this.letterCodeB = letterCodeB;
+            return this;
+        }
+
+        public Builder withLetterCodeA(String letterCodeA) {
+            this.letterCodeA = letterCodeA;
+            return this;
         }
 
         public Builder withCurrencyCodeA(String currencyCodeA) {
@@ -124,6 +165,11 @@ public class MainCurrencyRate {
 
         public Builder withRateBuy(String rateBuy) {
             this.rateBuy = rateBuy;
+            return this;
+        }
+
+        public Builder withRateCross(String rateCross) {
+            this.rateCross = rateCross;
             return this;
         }
 

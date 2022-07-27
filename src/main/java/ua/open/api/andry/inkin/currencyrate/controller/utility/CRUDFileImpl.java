@@ -1,32 +1,17 @@
-package ua.open.api.andry.inkin.currencyrate.provider;
+package ua.open.api.andry.inkin.currencyrate.controller.utility;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class TempFileProviderImpl implements TempFileProvider {
+public class CRUDFileImpl implements CRUDFile {
 
     @Override
-    public void provideTempFile(String nameFile,
+    public void provideFile(String nameFile,
                                 String typeFile,
                                 String textToFile) {
         createFile(nameFile, typeFile);
         writeToFile(nameFile, typeFile, textToFile);
-    }
-
-    @Override
-    public void writeToFile(String nameFile,
-                            String typeFile,
-                            String textToFile) {
-        try {
-            FileWriter myWriter = new FileWriter(nameFile
-                                                 + "."
-                                                 + typeFile);
-            myWriter.write(textToFile);
-            myWriter.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     @Override
@@ -45,6 +30,22 @@ public class TempFileProviderImpl implements TempFileProvider {
                         + "."
                         + typeFile);
     }
+    
+    @Override
+    public void writeToFile(String nameFile,
+                            String typeFile,
+                            String textToFile) {
+        try {
+            FileWriter myWriter = new FileWriter(nameFile
+                                                 + "."
+                                                 + typeFile);
+            myWriter.write(textToFile);
+            myWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     @Override
     public void deleteFile(String nameFile,
