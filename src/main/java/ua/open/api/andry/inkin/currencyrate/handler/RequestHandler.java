@@ -36,7 +36,7 @@ public class RequestHandler {
         List<MainCurrencyRate> mainCurrenciesRate = new LinkedList<>();
 
         validator.validate();
-
+        System.out.println(parser.parseMonobankCurrencyRates());
         parser.parseMonobankCurrencyRates();
         parser.parseMinfinCurrencyCodes();
 //        Document documentCurrencyCodes = parser.parseMinfinCurrencyCodes();
@@ -86,11 +86,6 @@ public class RequestHandler {
 //                // something..
 //            }
 //        }
-    }
-
-    private void parseCurrencyRates(String parsedPage) {
-        Document doc = new Document(parsedPage);
-        System.out.println(doc.toString());
     }
 
     public static class Builder {
