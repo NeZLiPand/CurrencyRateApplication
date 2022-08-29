@@ -1,4 +1,4 @@
-package ua.open.api.andry.inkin.currencyrate.controller.utility;
+package ua.open.api.andry.inkin.currencyrate.controller.workingwithfiles;
 
 import java.io.File;
 import java.io.IOException;

@@ -2,7 +2,8 @@ package ua.open.api.andry.inkin.currencyrate.model.domain;
 
 import java.util.Objects;
 
-public class MainCurrencyRate {
+//Зробити нормальну документацію к методам
+public class CurrencyRate {
 //    Код валюти рахунку відповідно ISO 4217
     private String currencyCodeA;
     private String letterCodeA;
@@ -17,8 +18,10 @@ public class MainCurrencyRate {
     private String rateBuy;
 //    Курс обміну  
     private String rateCross;
+//    Курс обміну  
+    private boolean isMain;
 
-    private MainCurrencyRate(Builder builder) {
+    private CurrencyRate(Builder builder) {
         this.currencyCodeA = builder.currencyCodeA;
         this.letterCodeA = builder.letterCodeA;
         this.letterCodeB = builder.letterCodeB;
@@ -27,9 +30,10 @@ public class MainCurrencyRate {
         this.rateSell = builder.rateSell;
         this.rateBuy = builder.rateBuy;
         this.rateCross = builder.rateCross;
+        this.isMain = builder.isMain;
     }
 
-    public MainCurrencyRate() {
+    public CurrencyRate() {
     }
 
     public static Builder builder() {
@@ -72,9 +76,13 @@ public class MainCurrencyRate {
         return rateBuy;
     }
 
+    public boolean getIsMain() {
+        return isMain;
+    }
+
     @Override
     public int hashCode() {
-        return Objects.hash(currencyCodeA, currencyCodeB, date, letterCodeA, letterCodeB, rateBuy, rateCross, rateSell);
+        return Objects.hash(currencyCodeA, currencyCodeB, date, isMain, letterCodeA, letterCodeB, rateBuy, rateCross, rateSell);
     }
 
     @Override
@@ -88,10 +96,11 @@ public class MainCurrencyRate {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        MainCurrencyRate other = (MainCurrencyRate) obj;
+        CurrencyRate other = (CurrencyRate) obj;
         return Objects.equals(currencyCodeA, other.currencyCodeA) &&
                Objects.equals(currencyCodeB, other.currencyCodeB) &&
                Objects.equals(date, other.date) &&
+               isMain == other.isMain &&
                Objects.equals(letterCodeA, other.letterCodeA) &&
                Objects.equals(letterCodeB, other.letterCodeB) &&
                Objects.equals(rateBuy, other.rateBuy) &&
@@ -101,7 +110,7 @@ public class MainCurrencyRate {
 
     @Override
     public String toString() {
-        return "MainCurrencyRate [currencyCodeA="
+        return "CurrencyRate [currencyCodeA="
                + currencyCodeA
                + ", letterCodeA="
                + letterCodeA
@@ -117,6 +126,8 @@ public class MainCurrencyRate {
                + rateBuy
                + ", rateCross="
                + rateCross
+               + ", isMain="
+               + isMain
                + "]";
     }
 
@@ -129,8 +140,14 @@ public class MainCurrencyRate {
         private String rateCross;
         private String letterCodeA;
         private String letterCodeB;
+        private boolean isMain;
 
         private Builder() {
+        }
+
+        public Builder withIsMain(boolean isMain) {
+            this.isMain = isMain;
+            return this;
         }
 
         public Builder withLetterCodeB(String letterCodeB) {
@@ -173,8 +190,9 @@ public class MainCurrencyRate {
             return this;
         }
 
-        public MainCurrencyRate build() {
-            return new MainCurrencyRate(this);
+        public CurrencyRate build() {
+            return new CurrencyRate(this);
         }
     }
+
 }

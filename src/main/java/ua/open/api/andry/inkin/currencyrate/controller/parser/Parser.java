@@ -2,10 +2,12 @@ package ua.open.api.andry.inkin.currencyrate.controller.parser;
 
 import java.io.IOException;
 
+import org.jsoup.select.Elements;
+
 public interface Parser {
 
-    public String parseMonobankCurrencyRates() throws IOException;
+    public Elements parseMonobankCurrenciesRates() throws IOException;
 
-    public String parseMinfinCurrencyCodes() throws IOException;
+    public Elements parseMinfinCurrenciesCodes() throws IOException;
 
 }

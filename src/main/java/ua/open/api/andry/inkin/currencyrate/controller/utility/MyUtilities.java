@@ -3,6 +3,7 @@ package ua.open.api.andry.inkin.currencyrate.controller.utility;
 import org.json.JSONArray;
 import org.json.XML;
 
+//Зробити нормальну документацію к методам
 public final class MyUtilities {
 
     private MyUtilities() {
@@ -10,7 +11,7 @@ public final class MyUtilities {
     }
 
     public static String dateConverterFromUNIXTimeToISO8601(long dateInMilliseconds) {
-        return new java.text.SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(new java.util.Date(dateInMilliseconds));
+        return new java.text.SimpleDateFormat("yyyy/MM/dd HH/mm/ss").format(new java.util.Date(dateInMilliseconds));
     }
 
     // переписати реалізацію методів нижче з використанням "JSONML"
