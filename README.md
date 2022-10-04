@@ -7,22 +7,22 @@ Description: Proxying and transforming Web service for obtaining exchange rates 
 Technologies:
 - Java SE 8;
 - Frameworks:
-  - Spring (Spring Boot, MVC)
+  - Spring (Spring Boot, MVC);
   - jsoup;
   - json;
-- JSP (implement through Spring)
+- JSP (implement through Spring);
 - PostgreSQL;
 - HTML5;
-- CSS3 (Sass)
+- CSS3 (SCSS).
 
 
 Stages of development:
 1. Back-end:
 - Implement the gathering of currency rates;
-- Implement data CRUD with database;
+- Implement data CRUD with database.
 
 2. Front-end:
-- Implement a web-site;
+- Implement a web-site.
 
 3. Recursive development.
 
