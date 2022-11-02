@@ -2,7 +2,7 @@
 
 Name: CurrencyRateApplication
 
-Description: Proxying and transforming Web service for obtaining exchange rates from an open API.
+Description: Web service for obtaining exchange rates from an open API.
 
 Technologies:
 - Java SE 8;
